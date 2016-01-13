@@ -6,11 +6,15 @@
 
 package hangman;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 /**
  *
  * @author wjaau_000
  */
-public class Screen1 extends javax.swing.JFrame {
+public class Screen1 extends javax.swing.JFrame implements ActionListener{
+	Screen2 sc2;
 
     /**
      * Creates new form GUI
@@ -65,11 +69,7 @@ public class Screen1 extends javax.swing.JFrame {
         WelcomeText.setText("Welcome to Hangman");
 
         StartButton.setText("Start Game");
-        StartButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                StartButtonActionPerformed(evt);
-            }
-        });
+        StartButton.addActionListener(this);
 
         AButton.setText("A");
         AButton.setPreferredSize(new java.awt.Dimension(45, 30));
@@ -293,9 +293,13 @@ public class Screen1 extends javax.swing.JFrame {
         pack();
     }// </editor-fold>                        
 
-    private void StartButtonActionPerformed(java.awt.event.ActionEvent evt) {                                            
-        // TODO add your handling code here:
-    }                                           
+    public void actionPerformed(ActionEvent e){
+    	if(e.getSource() == StartButton){
+    		sc2 = new Screen2();
+    		sc2.setVisible(true);
+    		this.setVisible(false);
+    	}
+    }
 
     /**
      * @param args the command line arguments

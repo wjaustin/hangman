@@ -14,33 +14,38 @@ public class Game {
 	String[] wordList = {"coding", "networking", "hangman", "superman", "batman", "software", "jordan", "random", "engineer", "wesley"};
 	Random random;
 	String theWord;
-	
-	static Screen1 sc1;
-	static Screen2 sc2;
 
 	/**
 	 * Constructor.  Initializes Hangman game.
 	 */
-	public static void main(String[]args){
-		//TODO
-		sc1 = new Screen1();
-		sc2 = new Screen2();
-		sc1.setVisible(true);
-	}
-	/**
-	 * Main loop that will run the game of Hangman.
-	 * The loop will end and the game put into an end state
-	 * when the user wins or presses the Stop Game button.
-	 */
-	public void runHangman(){
+	public Game(){
 		theWord = pickWord(wordList);
 		printWord(theWord);
-		
-		while (!hasWon()){
-			//TODO
+	}
+	/**
+	 * Gets called when the user presses a letter as a guess.
+	 * The guess is sent over as the char guess, and this method
+	 * then calls all required methods to complete the turn.
+	 * @param guess the letter the player has guessed
+	 */
+	public void runHangman(char guess){
+		boolean found = checkForLetter(guess);
+		if (found){
+			//TODO the character exists
+		}else{
+			//TODO the character does not exist
 		}
 	}
 	
+	/**
+	 * Checks for the letter in the chosen word.
+	 * @param guess the character to search for in the word
+	 * @return true if the character occurs at least once, false if it doesn't.
+	 */
+	private boolean checkForLetter(char guess) {
+		// TODO Auto-generated method stub
+		return false;
+	}
 	/**
 	 * Tests the cases in which a player will have won the game,
 	 * and returns true if the player has won.

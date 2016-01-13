@@ -6,16 +6,21 @@
 
 package hangman;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 /**
  *
  * @author wjaau_000
  */
-public class Screen2 extends javax.swing.JFrame {
-
+public class Screen2 extends javax.swing.JFrame implements ActionListener {
+    Game game;
+    Screen1 sc1;
     /**
      * Creates new form GUI
      */
     public Screen2() {
+    	game = new Game();
         initComponents();
     }
 
@@ -65,90 +70,112 @@ public class Screen2 extends javax.swing.JFrame {
         WelcomeText.setText("Welcome to Hangman");
 
         StopButton.setLabel("Stop Game");
-        StopButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                StopButtonActionPerformed(evt);
-            }
-        });
+        StopButton.addActionListener(this);
 
         AButton.setText("A");
         AButton.setPreferredSize(new java.awt.Dimension(45, 30));
+        AButton.addActionListener(this);
 
         BButton.setText("B");
         BButton.setPreferredSize(new java.awt.Dimension(45, 30));
+        BButton.addActionListener(this);
 
         CButton.setText("C");
         CButton.setPreferredSize(new java.awt.Dimension(45, 30));
+        CButton.addActionListener(this);
 
         DButton.setText("D");
         DButton.setPreferredSize(new java.awt.Dimension(45, 30));
+        DButton.addActionListener(this);
 
         EButton.setText("E");
         EButton.setPreferredSize(new java.awt.Dimension(45, 30));
+        EButton.addActionListener(this);
 
         FButton.setText("F");
         FButton.setPreferredSize(new java.awt.Dimension(45, 30));
+        FButton.addActionListener(this);
 
         GButton.setText("G");
         GButton.setPreferredSize(new java.awt.Dimension(45, 30));
+        GButton.addActionListener(this);
 
         HButton.setText("H");
         HButton.setPreferredSize(new java.awt.Dimension(45, 30));
+        HButton.addActionListener(this);
 
         IButton.setText("I");
         IButton.setPreferredSize(new java.awt.Dimension(45, 30));
+        IButton.addActionListener(this);
 
         JButton.setText("J");
         JButton.setPreferredSize(new java.awt.Dimension(45, 30));
+        JButton.addActionListener(this);
 
         KButton.setText("K");
         KButton.setPreferredSize(new java.awt.Dimension(45, 30));
+        KButton.addActionListener(this);
 
         LButton.setText("L");
         LButton.setPreferredSize(new java.awt.Dimension(45, 30));
+        LButton.addActionListener(this);
 
         MButton.setText("M");
         MButton.setMaximumSize(new java.awt.Dimension(100, 25));
+        MButton.addActionListener(this);
         MButton.setMinimumSize(new java.awt.Dimension(100, 25));
         MButton.setPreferredSize(new java.awt.Dimension(45, 30));
 
         NButton.setText("N");
         NButton.setPreferredSize(new java.awt.Dimension(45, 30));
+        NButton.addActionListener(this);
 
         OButton.setText("O");
         OButton.setPreferredSize(new java.awt.Dimension(45, 30));
+        OButton.addActionListener(this);
 
         PButton.setText("P");
         PButton.setPreferredSize(new java.awt.Dimension(45, 30));
+        PButton.addActionListener(this);
 
         QButton.setText("Q");
         QButton.setPreferredSize(new java.awt.Dimension(45, 30));
+        QButton.addActionListener(this);
 
         SButton.setText("S");
         SButton.setPreferredSize(new java.awt.Dimension(45, 30));
+        SButton.addActionListener(this);
 
         RButton.setText("R");
         RButton.setPreferredSize(new java.awt.Dimension(45, 30));
+        RButton.addActionListener(this);
 
         TButton.setText("T");
         TButton.setPreferredSize(new java.awt.Dimension(45, 30));
+        TButton.addActionListener(this);
 
         UButton.setText("U");
         UButton.setPreferredSize(new java.awt.Dimension(45, 30));
+        UButton.addActionListener(this);
 
         VButton.setText("V");
         VButton.setPreferredSize(new java.awt.Dimension(45, 30));
+        VButton.addActionListener(this);
 
         WButton.setText("W");
         WButton.setPreferredSize(new java.awt.Dimension(45, 30));
+        WButton.addActionListener(this);
 
         XButton.setText("X");
+        XButton.addActionListener(this);
 
         YButton.setText("Y");
+        YButton.addActionListener(this);
         YButton.setPreferredSize(new java.awt.Dimension(45, 30));
 
         ZButton.setText("Z");
         ZButton.setPreferredSize(new java.awt.Dimension(45, 30));
+        ZButton.addActionListener(this);
 
         TextBox.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         TextBox.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -291,10 +318,66 @@ public class Screen2 extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>                        
-
-    private void StopButtonActionPerformed(java.awt.event.ActionEvent evt) {                                           
-        // TODO add your handling code here:
-    }                                          
+    
+    public void actionPerformed(ActionEvent e){
+    	if(e.getSource() == StopButton){
+    		sc1 = new Screen1();
+    		sc1.setVisible(true);
+    		this.setVisible(false);
+    	}else if(e.getSource() == AButton){
+    		game.runHangman('a');
+    	}else if(e.getSource() == BButton){
+    		game.runHangman('b');
+    	}else if(e.getSource() == CButton){
+    		game.runHangman('c');
+    	}else if(e.getSource() == DButton){
+    		game.runHangman('d');
+    	}else if(e.getSource() == EButton){
+    		game.runHangman('e');
+    	}else if(e.getSource() == FButton){
+    		game.runHangman('f');
+    	}else if(e.getSource() == GButton){
+    		game.runHangman('g');
+    	}else if(e.getSource() == HButton){
+    		game.runHangman('h');
+    	}else if(e.getSource() == IButton){
+    		game.runHangman('i');
+    	}else if(e.getSource() == JButton){
+    		game.runHangman('j');
+    	}else if(e.getSource() == KButton){
+    		game.runHangman('k');
+    	}else if(e.getSource() == LButton){
+    		game.runHangman('l');
+    	}else if(e.getSource() == MButton){
+    		game.runHangman('m');
+    	}else if(e.getSource() == NButton){
+    		game.runHangman('n');
+    	}else if(e.getSource() == OButton){
+    		game.runHangman('o');
+    	}else if(e.getSource() == PButton){
+    		game.runHangman('p');
+    	}else if(e.getSource() == QButton){
+    		game.runHangman('q');
+    	}else if(e.getSource() == RButton){
+    		game.runHangman('r');
+    	}else if(e.getSource() == SButton){
+    		game.runHangman('s');
+    	}else if(e.getSource() == TButton){
+    		game.runHangman('t');
+    	}else if(e.getSource() == UButton){
+    		game.runHangman('u');
+    	}else if(e.getSource() == VButton){
+    		game.runHangman('v');
+    	}else if(e.getSource() == WButton){
+    		game.runHangman('w');
+    	}else if(e.getSource() == XButton){
+    		game.runHangman('x');
+    	}else if(e.getSource() == YButton){
+    		game.runHangman('y');
+    	}else if(e.getSource() == ZButton){
+    		game.runHangman('z');
+    	}
+    }
 
     /**
      * @param args the command line arguments
