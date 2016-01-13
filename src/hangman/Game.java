@@ -13,12 +13,19 @@ public class Game {
 	//TODO initialize variables
 	String[] wordList = {"coding", "networking", "hangman", "superman", "batman", "software", "jordan", "random", "engineer", "wesley"};
 	Random random;
+	String theWord;
+	
+	static Screen1 sc1;
+	static Screen2 sc2;
 
 	/**
 	 * Constructor.  Initializes Hangman game.
 	 */
-	public Game(){
+	public static void main(String[]args){
 		//TODO
+		sc1 = new Screen1();
+		sc2 = new Screen2();
+		sc1.setVisible(true);
 	}
 	/**
 	 * Main loop that will run the game of Hangman.
@@ -26,7 +33,12 @@ public class Game {
 	 * when the user wins or presses the Stop Game button.
 	 */
 	public void runHangman(){
+		theWord = pickWord(wordList);
+		printWord(theWord);
 		
+		while (!hasWon()){
+			//TODO
+		}
 	}
 	
 	/**
@@ -50,7 +62,7 @@ public class Game {
 		return words[random.nextInt(words.length)];
 	}
 	
-	public void printWord(){
+	public void printWord(String word){
 		
 	}
 	
