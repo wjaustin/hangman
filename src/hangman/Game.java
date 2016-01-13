@@ -3,12 +3,16 @@
  */
 package hangman;
 
+import java.util.Random;
+
 /**
  * @author wjaau_000
  *
  */
 public class Game {
 	//TODO initialize variables
+	String[] wordList = {"coding", "networking", "hangman", "superman", "batman", "software", "jordan", "random", "engineer", "wesley"};
+	Random random;
 
 	/**
 	 * Constructor.  Initializes Hangman game.
@@ -42,8 +46,20 @@ public class Game {
 	 * @return a string from words selected at random.
 	 */
 	private String pickWord(String[] words){
+		random = new Random();
+		return words[random.nextInt(words.length)];
+	}
+	
+	public void printWord(){
 		
-		return null;
+	}
+	
+	/**
+	 * Prints the number of tries to the appropriate label in the GUI
+	 * @param tries the number of attempts
+	 */
+	public void printTries(int tries){
+		
 	}
 	
 	
