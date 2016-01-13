@@ -14,13 +14,14 @@ public class Game {
 	String[] wordList = {"coding", "networking", "hangman", "superman", "batman", "software", "jordan", "random", "engineer", "wesley"};
 	Random random;
 	String theWord;
+	Screen2 screen;
 
 	/**
 	 * Constructor.  Initializes Hangman game.
 	 */
-	public Game(){
+	public Game(Screen2 screen){
 		theWord = pickWord(wordList);
-		printWord(theWord);
+		this.screen = screen;
 	}
 	/**
 	 * Gets called when the user presses a letter as a guess.
@@ -29,6 +30,7 @@ public class Game {
 	 * @param guess the letter the player has guessed
 	 */
 	public void runHangman(char guess){
+		System.out.println(guess);
 		boolean found = checkForLetter(guess);
 		if (found){
 			//TODO the character exists
@@ -68,7 +70,7 @@ public class Game {
 	}
 	
 	public void printWord(String word){
-		
+		screen.printWord(word);
 	}
 	
 	/**
@@ -76,7 +78,7 @@ public class Game {
 	 * @param tries the number of attempts
 	 */
 	public void printTries(int tries){
-		
+		screen.printTries(tries);
 	}
 	
 	
