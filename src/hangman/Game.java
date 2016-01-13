@@ -15,6 +15,7 @@ public class Game {
 	Random random;
 	String theWord;
 	Screen2 screen;
+	int Trys = 0;
 
 	/**
 	 * Constructor.  Initializes Hangman game.
@@ -22,6 +23,7 @@ public class Game {
 	public Game(Screen2 screen){
 		theWord = pickWord(wordList);
 		this.screen = screen;
+		
 	}
 	/**
 	 * Gets called when the user presses a letter as a guess.
@@ -30,10 +32,15 @@ public class Game {
 	 * @param guess the letter the player has guessed
 	 */
 	public void runHangman(char guess){
+		
 		System.out.println(guess);
+		screen.printTextbox(theWord, Trys);
+		Trys++;
 		boolean found = checkForLetter(guess);
 		if (found){
-			//TODO the character exists
+			do {
+				theWord.indexOf(guess + "");
+			} while (checkForLetter(guess));
 		}else{
 			//TODO the character does not exist
 		}
@@ -45,8 +52,14 @@ public class Game {
 	 * @return true if the character occurs at least once, false if it doesn't.
 	 */
 	private boolean checkForLetter(char guess) {
-		// TODO Auto-generated method stub
-		return false;
+		String g = guess + "";
+		
+		if (theWord.contains(g)){
+			return true;
+		}else { 
+			return false;
+		}
+
 	}
 	/**
 	 * Tests the cases in which a player will have won the game,
