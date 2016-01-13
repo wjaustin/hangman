@@ -81,6 +81,10 @@ public class Game {
 		screen.printTries(tries);
 	}
 	
-	
-
+	public static boolean isTheWordGuessed(char[] array) {
+		for (int i = 0; i < array.length; i++) {
+			if (array[i] == 'X') return false;
+		}
+		return true;
+	}
 }
