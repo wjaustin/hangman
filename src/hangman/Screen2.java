@@ -21,8 +21,8 @@ public class Screen2 extends javax.swing.JFrame implements ActionListener {
      * Creates new form GUI
      */
     public Screen2() {
-    	game = new Game(this);
         initComponents();
+        game = new Game(this);
     }
 
     /**
@@ -32,19 +32,7 @@ public class Screen2 extends javax.swing.JFrame implements ActionListener {
      */
     @SuppressWarnings({ "deprecation" })
     // <editor-fold defaultstate="collapsed" desc="Generated Code">
-    
-    public void printTextbox(String word, int tries){
-    	if (tries == 0) {
-    		String display = "";
-    		for (int i = 0; i < word.length(); i++){
-    			display = display + "X";
-    		}
-    		System.out.println(display);
-    		TextBox.setText(display);    	
-    	}else {
-    		
-    	}
-    }
+   
     
     private void initComponents() {
 
@@ -194,7 +182,7 @@ public class Screen2 extends javax.swing.JFrame implements ActionListener {
 
         TextBox.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         TextBox.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        TextBox.setText("null");
+        TextBox.setText("123");
 
         TriesLabel.setBackground(new java.awt.Color(0, 0, 0));
         TriesLabel.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
@@ -341,61 +329,91 @@ public class Screen2 extends javax.swing.JFrame implements ActionListener {
     		this.setVisible(false);
     	}else if(e.getSource() == AButton){
     		game.runHangman('a');
+    		AButton.setText("");
     	}else if(e.getSource() == BButton){
     		game.runHangman('b');
+    		BButton.setText("");
     	}else if(e.getSource() == CButton){
     		game.runHangman('c');
+    		CButton.setText("");
     	}else if(e.getSource() == DButton){
     		game.runHangman('d');
+    		DButton.setText("");
     	}else if(e.getSource() == EButton){
     		game.runHangman('e');
+    		EButton.setText("");
     	}else if(e.getSource() == FButton){
     		game.runHangman('f');
+    		FButton.setText("");
     	}else if(e.getSource() == GButton){
     		game.runHangman('g');
+    		GButton.setText("");
     	}else if(e.getSource() == HButton){
     		game.runHangman('h');
+    		HButton.setText("");
     	}else if(e.getSource() == IButton){
     		game.runHangman('i');
+    		IButton.setText("");
     	}else if(e.getSource() == JButton){
     		game.runHangman('j');
+    		JButton.setText("");
     	}else if(e.getSource() == KButton){
     		game.runHangman('k');
+    		KButton.setText("");
     	}else if(e.getSource() == LButton){
     		game.runHangman('l');
+    		LButton.setText("");
     	}else if(e.getSource() == MButton){
     		game.runHangman('m');
+    		MButton.setText("");
     	}else if(e.getSource() == NButton){
     		game.runHangman('n');
+    		NButton.setText("");
     	}else if(e.getSource() == OButton){
     		game.runHangman('o');
+    		OButton.setText("");
     	}else if(e.getSource() == PButton){
     		game.runHangman('p');
+    		PButton.setText("");
     	}else if(e.getSource() == QButton){
     		game.runHangman('q');
+    		QButton.setText("");
     	}else if(e.getSource() == RButton){
     		game.runHangman('r');
+    		RButton.setText("");
     	}else if(e.getSource() == SButton){
     		game.runHangman('s');
+    		SButton.setText("");
     	}else if(e.getSource() == TButton){
     		game.runHangman('t');
+    		TButton.setText("");
     	}else if(e.getSource() == UButton){
     		game.runHangman('u');
+    		UButton.setText("");
     	}else if(e.getSource() == VButton){
     		game.runHangman('v');
+    		VButton.setText("");
     	}else if(e.getSource() == WButton){
     		game.runHangman('w');
+    		WButton.setText("");
     	}else if(e.getSource() == XButton){
     		game.runHangman('x');
+    		XButton.setText("");
     	}else if(e.getSource() == YButton){
     		game.runHangman('y');
+    		YButton.setText("");
     	}else if(e.getSource() == ZButton){
     		game.runHangman('z');
+    		ZButton.setText("");
     	}
     }
     
     public void printWord(String word){
-    	TextBox.setText(word);
+    	String print = "";
+    	for (int i = 0; i < word.length(); i ++){
+    		print = print + word.substring(i, i+1) + " ";
+    	}
+    	TextBox.setText(print);
     }
     
     public void printTries(int tries){

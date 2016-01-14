@@ -153,13 +153,13 @@ public class Screen1 extends javax.swing.JFrame implements ActionListener{
 
         TextBox.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         TextBox.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        TextBox.setText("null");
+        TextBox.setText("Hit Start Game to begin!");
 
         TriesLabel.setBackground(new java.awt.Color(0, 0, 0));
         TriesLabel.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         TriesLabel.setForeground(new java.awt.Color(255, 255, 255));
         TriesLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        TriesLabel.setText("null Tries");
+        TriesLabel.setText("0 Tries");
         TriesLabel.setEnabled(false);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());

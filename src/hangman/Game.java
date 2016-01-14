@@ -3,6 +3,7 @@
  */
 package hangman;
 
+import java.util.ArrayList;
 import java.util.Random;
 
 /**
@@ -14,8 +15,10 @@ public class Game {
 	String[] wordList = {"coding", "networking", "hangman", "superman", "batman", "software", "jordan", "random", "engineer", "wesley"};
 	Random random;
 	String theWord;
+	char[] display;
+	ArrayList<Character> guesses;
 	Screen2 screen;
-	int Trys = 0;
+	int tries;
 
 	/**
 	 * Constructor.  Initializes Hangman game.
@@ -23,7 +26,15 @@ public class Game {
 	public Game(Screen2 screen){
 		theWord = pickWord(wordList);
 		this.screen = screen;
+		tries = 0;
+		guesses = new ArrayList<Character>();
+		display = new char[theWord.length()];
+		for (int i = 0; i < theWord.length(); i++){
+			display[i] = '_';
+		}
 		
+		printWord(display);
+		printTries(0);
 	}
 	/**
 	 * Gets called when the user presses a letter as a guess.
@@ -32,18 +43,16 @@ public class Game {
 	 * @param guess the letter the player has guessed
 	 */
 	public void runHangman(char guess){
-		
-		System.out.println(guess);
-		screen.printTextbox(theWord, Trys);
-		Trys++;
-		boolean found = checkForLetter(guess);
-		if (found){
-			do {
-				theWord.indexOf(guess + "");
-			} while (checkForLetter(guess));
-		}else{
-			//TODO the character does not exist
+		if (!hasWon()){
+			if (!guesses.contains(guess)){
+				guesses.add(guess);
+				tries++;
+				checkForLetter(guess);
+				printWord(display);
+				printTries(tries);
+			}
 		}
+		
 	}
 	
 	/**
@@ -51,15 +60,15 @@ public class Game {
 	 * @param guess the character to search for in the word
 	 * @return true if the character occurs at least once, false if it doesn't.
 	 */
-	private boolean checkForLetter(char guess) {
-		String g = guess + "";
-		
-		if (theWord.contains(g)){
-			return true;
-		}else { 
-			return false;
+	private void checkForLetter(char guess) {
+		String input = Character.toString(guess);
+		if (theWord.contains(input)){
+			for (int i = 0; i < theWord.length(); i++){
+				if (theWord.substring(i, i+1).equals(input)){
+					display[i] = guess;
+				}
+			}
 		}
-
 	}
 	/**
 	 * Tests the cases in which a player will have won the game,
@@ -67,8 +76,12 @@ public class Game {
 	 * @return true if the player has won, false otherwise.
 	 */
 	private boolean hasWon(){
-		
-		return false;
+		for (int i = 0; i < display.length; i++){
+			if (display[i] == '_'){
+				return false;
+			}
+		}
+		return true;
 	}
 	
 	/**
@@ -82,8 +95,12 @@ public class Game {
 		return words[random.nextInt(words.length)];
 	}
 	
-	public void printWord(String word){
-		screen.printWord(word);
+	public void printWord(char[] word){
+		String output = "";
+		for (int i = 0; i < word.length; i++){
+			output = output + word[i];
+		}
+		screen.printWord(output);
 	}
 	
 	/**
