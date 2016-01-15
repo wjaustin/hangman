@@ -11,7 +11,7 @@ import java.awt.event.ActionListener;
 
 /**
  *
- * @author wjaau_000
+ * @author Wesley Austin, Jordan Johnson
  */
 @SuppressWarnings("serial")
 public class Screen1 extends javax.swing.JFrame implements ActionListener{
@@ -294,6 +294,10 @@ public class Screen1 extends javax.swing.JFrame implements ActionListener{
         pack();
     }// </editor-fold>                        
 
+    /**
+     * Catches presses of the Start Game button, and in turns
+     * initializes and creates the second screen while removing itself.
+     */
     public void actionPerformed(ActionEvent e){
     	if(e.getSource() == StartButton){
     		sc2 = new Screen2();

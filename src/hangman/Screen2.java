@@ -11,7 +11,7 @@ import java.awt.event.ActionListener;
 
 /**
  *
- * @author wjaau_000
+ * @author Wesley Austin, Jordan Johnson
  */
 @SuppressWarnings("serial")
 public class Screen2 extends javax.swing.JFrame implements ActionListener {
@@ -322,6 +322,10 @@ public class Screen2 extends javax.swing.JFrame implements ActionListener {
         pack();
     }// </editor-fold>                        
     
+    /**
+     * Action listeners for all the buttons to send guesses and remove their letters once used,
+     * and the Stop Game button that creates a Screen1 instance and removes the Screen2 instance.
+     */
     public void actionPerformed(ActionEvent e){
     	if(e.getSource() == StopButton){
     		sc1 = new Screen1();
@@ -408,6 +412,10 @@ public class Screen2 extends javax.swing.JFrame implements ActionListener {
     	}
     }
     
+    /**
+     * Class called from Game.java that prints a formated string to the TextBox.
+     * @param word the string to be displayed
+     */
     public void printWord(String word){
     	String print = "";
     	for (int i = 0; i < word.length(); i ++){
@@ -416,6 +424,10 @@ public class Screen2 extends javax.swing.JFrame implements ActionListener {
     	TextBox.setText(print);
     }
     
+    /**
+     * Formats the number of tries to be printed.  Called from Game.java.
+     * @param tries the number of tries.
+     */
     public void printTries(int tries){
     	TriesLabel.setText(tries + " Tries");
     }

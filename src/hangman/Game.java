@@ -1,5 +1,5 @@
 /**
- * 
+ * Instance of game logic.
  */
 package hangman;
 
@@ -7,11 +7,10 @@ import java.util.ArrayList;
 import java.util.Random;
 
 /**
- * @author wjaau_000
+ * @author Jordan Johnson, Wesley Austin
  *
  */
 public class Game {
-	//TODO initialize variables
 	String[] wordList = {"coding", "networking", "hangman", "superman", "batman", "software", "jordan", "random", "engineer", "wesley"};
 	Random random;
 	String theWord;
@@ -38,8 +37,7 @@ public class Game {
 	}
 	/**
 	 * Gets called when the user presses a letter as a guess.
-	 * The guess is sent over as the char guess, and this method
-	 * then calls all required methods to complete the turn.
+	 * Performs the needed operations to process the user's input.
 	 * @param guess the letter the player has guessed
 	 */
 	public void runHangman(char guess){
@@ -56,7 +54,8 @@ public class Game {
 	}
 	
 	/**
-	 * Checks for the letter in the chosen word.
+	 * Checks for the letter in the chosen word.  If it contains it, it saves the guess to an ArrayList and
+	 * sets up the letter to be displayed to the user.
 	 * @param guess the character to search for in the word
 	 * @return true if the character occurs at least once, false if it doesn't.
 	 */
@@ -95,6 +94,11 @@ public class Game {
 		return words[random.nextInt(words.length)];
 	}
 	
+	/**
+	 * Turns the character array containing the spaces and correctly guessed letters into an exportable format
+	 * and then sends it to the Screen2 class to be displayed.
+	 * @param word the array containing spaces for unguessed letters and correctly guessed letters
+	 */
 	public void printWord(char[] word){
 		String output = "";
 		for (int i = 0; i < word.length; i++){
@@ -111,10 +115,4 @@ public class Game {
 		screen.printTries(tries);
 	}
 	
-	public static boolean isTheWordGuessed(char[] array) {
-		for (int i = 0; i < array.length; i++) {
-			if (array[i] == 'X') return false;
-		}
-		return true;
-	}
 }
